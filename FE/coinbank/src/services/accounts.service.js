@@ -8,7 +8,7 @@ class AccountsService {
     return axios.get(`${apiUrl}/accounts/${accountId}/pageOperations?page=${page}&size=${size}`)
       .then(response => response.data)
       .catch(error => {
-        throw error;
+        console.log(error);
       });
   }
 
@@ -16,7 +16,7 @@ class AccountsService {
     const data = { accountId, amount, description };
     return axios.post(`${apiUrl}/accounts/debit`, data)
       .catch(error => {
-        throw error;
+        console.log(error);
       });
   }
 
@@ -24,7 +24,7 @@ class AccountsService {
     const data = { accountId, amount, description };
     return axios.post(`${apiUrl}/accounts/credit`, data)
       .catch(error => {
-        throw error;
+        console.log(error);
       });
   }
 
@@ -32,7 +32,7 @@ class AccountsService {
     const data = { accountSource, accountDestination, amount, description };
     return axios.post(`${apiUrl}/accounts/transfer`, data)
       .catch(error => {
-        throw error;
+        console.log(error);
       });
   }
 
@@ -40,7 +40,7 @@ class AccountsService {
     return axios.put(`${apiUrl}/accounts/${bankAccount.id}`, bankAccount)
       .then(response => response.data)
       .catch(error => {
-        throw error;
+        console.log(error);
       });
   }
 }

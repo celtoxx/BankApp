@@ -62,7 +62,7 @@ const navigate = useNavigate();
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
       <h2></h2>
       <form className="form">
         <p className="title">Register</p>
@@ -99,7 +99,7 @@ const navigate = useNavigate();
         Please wait...
       </span>
         <p className="signin">
-          Already have an account? <a href="/signin">Sign in</a>
+          Already have an account? <a href="/login">Sign in</a>
         </p>
       </form>
     </div>

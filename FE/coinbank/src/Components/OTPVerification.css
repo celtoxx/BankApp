@@ -41,12 +41,22 @@
   }
   
   .action {
-    margin-top: 24px;
+    margin-top: 34px;
     padding: 12px 16px;
     border-radius: 8px;
     border: none;
     background-color: royalblue;
     color: white;
     cursor: pointer;
-    align-self: end;
+    
+  }
+  .action1{
+    margin-top: px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(178, 156, 186);
+    color: white;
+    cursor: pointer;
+    
   }

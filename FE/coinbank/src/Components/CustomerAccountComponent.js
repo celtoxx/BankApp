@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate,useLocation } from 'react-router-dom';
 import { Container, Table, Alert, Spinner } from 'react-bootstrap';
 import CustomerService from '../services/customer.service';
 
 const CustomerAccountsComponent = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const customerService = new CustomerService();
-
+  const location = useLocation();
   const [customer, setCustomer] = useState({});
   const [customer1, setCustomer1] = useState({});
   const [accounts, setAccounts] = useState([]);
@@ -15,6 +16,7 @@ const CustomerAccountsComponent = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log(id);
     async function fetchData() {
       try {
         const customerData = await customerService.getOneCustomer(parseInt(id));
@@ -39,8 +41,20 @@ const CustomerAccountsComponent = () => {
   }, [id]);
 
   const viewOperations = (account) => {
-    window.location.href = `/one-account/${account.id}`;
+    navigate(`/one-account/${account.id}`, {state:id});
   };
+
+const viewProfile=()=>{
+
+}
+  function getFirstWord(inputString) {
+    const match = inputString.match(/^\w+/);
+    return match ? match[0] : null;
+  }
+
+  const capitalizeFirstLetter= (inputString )=>{ return inputString.charAt(0).toUpperCase() + inputString.slice(1)};
+
+
 
   return (
     <Container>
@@ -52,7 +66,7 @@ const CustomerAccountsComponent = () => {
         <>
           <div style={{ textAlign: 'center' }} className="card">
             <div className="card-header">
-              <h2 style={{ fontSize: '40px' }}>Informations Personnel</h2>
+              <h2 style={{ fontSize: '40px' }}></h2>
               <Table className="table" style={{ fontSize: '20px' }}>
                 <thead>
                   <tr>
@@ -67,6 +81,7 @@ const CustomerAccountsComponent = () => {
                   </tr>
                 </tbody>
               </Table>
+              <button onClick={viewProfile}>View Profile</button>
             </div>
             <div className="card-body" style={{ fontSize: '18px' }}>
               <h2 style={{ fontSize: '40px' }}>Accounts</h2>
@@ -86,7 +101,7 @@ const CustomerAccountsComponent = () => {
                       {(customer1.id === customer.id || (roles !== null && roles.includes('ADMIN'))) && (
                         <td>{account.balance} Rs</td>
                       )}
-                      <td>{account.type.replace('Account', ' Account')}</td>
+                      <td>{capitalizeFirstLetter(getFirstWord(account.type))}</td>
                       {(customer1.id === customer.id || (roles !== null && roles.includes('ADMIN'))) && (
                         <td>
                           <button onClick={() => viewOperations(account)} className="btn btn-warning">

@@ -20,7 +20,7 @@ const navigate = useNavigate();
   const handleVerify = async (e) => {
     e.preventDefault();
 
-   console.log(otp +"  ..."+optData.otp);
+  
     if (otp === (optData.otp)) {
       try {
        
@@ -39,8 +39,7 @@ const navigate = useNavigate();
     }
   };
 
-  return (
-    <form className="form">
+  return (<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}> <form className="form"  >
       <div className="title">OTP</div>
       <div className="title">Verification Code</div>
       <p className="message">We have sent a verification code to your mobile number</p>
@@ -54,7 +53,9 @@ const navigate = useNavigate();
         {/* ... repeat for other input fields ... */}
       </div>
       <button className="action" onClick={handleVerify}>Verify Me</button>
-    </form>
+      <button className="action1" onClick={()=>{navigate('/register')}}>Did'nt Recieve OTP</button>
+    </form></div>
+   
   );
 };
 
