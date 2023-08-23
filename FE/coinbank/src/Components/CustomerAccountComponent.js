@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams,useNavigate,useLocation } from 'react-router-dom';
 import { Container, Table, Alert, Spinner } from 'react-bootstrap';
 import CustomerService from '../services/customer.service';
-
+import Navbar from '../component/Navbar';
 const CustomerAccountsComponent = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -57,7 +57,9 @@ const viewProfile=()=>{
 
 
   return (
+    
     <Container>
+      
       {loading ? (
         <Spinner animation="border" variant="primary" />
       ) : errorMessage ? (

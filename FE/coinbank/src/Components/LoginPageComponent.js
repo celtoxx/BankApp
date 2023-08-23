@@ -54,6 +54,9 @@ const LoginPageComponent = () => {
     }
   };
 
+  const forgotPass=()=>{
+    navigate("/forgotPass");
+  }
   const signup = () => {
     navigate("/signup");
   };
@@ -107,7 +110,11 @@ const LoginPageComponent = () => {
                       className={`btn float-right login_btn ${
                         Object.keys(errors).length > 0 ? "disabled" : ""
                       }`}
-                    />
+                    /> 
+                    
+                    <button type="button" onClick={forgotPass} id="signup">
+                    Forgot password
+                  </button>
                   </div>
                   <button type="button" onClick={signup} id="signup">
                     Create Account
