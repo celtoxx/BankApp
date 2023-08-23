@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams,useNavigate,useLocation } from 'react-router-dom';
 import { Container, Table, Alert, Spinner } from 'react-bootstrap';
 import CustomerService from '../services/customer.service';
-
+import "./CustomerAccountComponent.css";
 const CustomerAccountsComponent = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -44,8 +44,8 @@ const CustomerAccountsComponent = () => {
     navigate(`/one-account/${account.id}`, {state:id});
   };
 
-const viewProfile=()=>{
-
+const updateProfile=(account)=>{
+  navigate(`/update-customer/${id}`, {state:id});
 }
   function getFirstWord(inputString) {
     const match = inputString.match(/^\w+/);
@@ -81,7 +81,7 @@ const viewProfile=()=>{
                   </tr>
                 </tbody>
               </Table>
-              <button onClick={viewProfile}>View Profile</button>
+              <button className="view-profile-button" onClick={updateProfile} >Update Profile</button>
             </div>
             <div className="card-body" style={{ fontSize: '18px' }}>
               <h2 style={{ fontSize: '40px' }}>Accounts</h2>
