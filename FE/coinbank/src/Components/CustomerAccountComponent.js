@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams,useNavigate,useLocation } from 'react-router-dom';
 import { Container, Table, Alert, Spinner } from 'react-bootstrap';
 import CustomerService from '../services/customer.service';
+<<<<<<< HEAD
 import "./CustomerAccountComponent.css";
+=======
+import Navbar from '../component/Navbar';
+>>>>>>> 81e545ce39e71972c40553bbea506d2aefea266b
 const CustomerAccountsComponent = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -57,7 +61,9 @@ const updateProfile=(account)=>{
 
 
   return (
+    
     <Container>
+      
       {loading ? (
         <Spinner animation="border" variant="primary" />
       ) : errorMessage ? (

@@ -25,6 +25,7 @@ import { AuthGuard } from "./guard/auth.guard";
 import PaymentComponent from "./Components/PaymentComponent";
 import ManageCustomersComponent from "./Components/ManagerCustomersComponent";
 import UpdateCustomerComponent from "./Components/UpdateCustomerComponent";
+import ChangePasswordComponent from "./Components/ChangePasswordComponent";
 
 function App() {
   return (
@@ -72,7 +73,11 @@ function App() {
             path="update-customer/:id"
             element={<UpdateCustomerComponent></UpdateCustomerComponent>}
           />
-
+           <Route
+            path="/forgotPass"
+            element={<ChangePasswordComponent></ChangePasswordComponent>}
+          />
+          
           <Route path="/user/*">
             //{" "}
             <Route
