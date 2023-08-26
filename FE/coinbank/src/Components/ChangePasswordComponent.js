@@ -1,5 +1,5 @@
 // RequestResetComponent.jsx
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
@@ -14,8 +14,11 @@ function RequestResetComponent() {
     const [cnf2password, setcnf2Password] = useState('');
     const [verifiedOTP,setverifiedOTP]=useState(false);
     const [chkotp, setchkOtp] = useState('');
-    const [customer,setCustomer]=useState({name:'',password:'',email:''})
-
+  
+    useEffect(() => {
+        console.log("in use effect");
+        // You can perform actions related to the verifiedOTP state here
+      }, [verifiedOTP]);
     const navigate = useNavigate();
     var x=11111111;
     const handleRequestReset = async (e) => {
@@ -55,18 +58,18 @@ function RequestResetComponent() {
         }
     
 
-   const changePass=()=>{
+   const changePass= async ()=>{
 
-        if(verifiedOTP&&(cnfpassword===cnf2password))
+        if(verifiedOTP && (cnfpassword===cnf2password))
         {
             const updatedCustomer = {
-                name: 'John Doe',
-                password: 'newPassword',
-                email: 'john@example.com'
+                name: 'abc',
+                password: cnfpassword,
+                email: email
               };
-            setCustomer(updatedCustomer)
-            console.log(customer);
-        var response = axios.post(`${apiUrl}/changepassword`, { customer});
+            //setCustomer(updatedCustomer)
+            console.log(updatedCustomer);
+         var response = await axios.post(`${apiUrl}/changepassword`,  updatedCustomer);
         navigate('/login');
         }
 

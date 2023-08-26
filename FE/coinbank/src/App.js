@@ -28,6 +28,7 @@ import UpdateCustomerComponent from "./Components/UpdateCustomerComponent";
 import ChangePasswordComponent from "./Components/ChangePasswordComponent";
 
 function App() {
+
   return (
     <div>
       <BrowserRouter>
@@ -39,7 +40,7 @@ function App() {
         <Route path='/forgotPassword' element={<ForgotPassword />}></Route> */}
           <Route
             path="/"
-            element={<LoginPageComponent></LoginPageComponent>}
+            element={<LoginPageComponent ></LoginPageComponent>}
           ></Route>
           <Route
             path="/login"
