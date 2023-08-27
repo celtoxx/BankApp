@@ -1,0 +1,15 @@
+/* ContactUs.css */
+.contact-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .contact-header {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info {
+    font-size: 18px;
+  }
+  

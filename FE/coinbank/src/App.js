@@ -26,12 +26,15 @@ import PaymentComponent from "./Components/PaymentComponent";
 import ManageCustomersComponent from "./Components/ManagerCustomersComponent";
 import UpdateCustomerComponent from "./Components/UpdateCustomerComponent";
 import ChangePasswordComponent from "./Components/ChangePasswordComponent";
+import { Footer } from "./component/Footer";
+import ContactUsComponent from './Components/contactUsComponent'
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Navbar></Navbar>
+        
         <Routes>
           {/* <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Signup />}></Route>
@@ -77,7 +80,10 @@ function App() {
             path="/forgotPass"
             element={<ChangePasswordComponent></ChangePasswordComponent>}
           />
-          
+          <Route
+            path="/contactUs"
+            element={<ContactUsComponent></ContactUsComponent>}
+          />
           <Route path="/user/*">
             //{" "}
             <Route
@@ -96,6 +102,7 @@ function App() {
             //{" "}
           </Route>
         </Routes>
+        <Footer></Footer>
       </BrowserRouter>
     </div>
   );

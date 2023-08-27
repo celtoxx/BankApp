@@ -4,9 +4,9 @@ import AccountsService from "../services/accounts.service";
 import "./OneAccountComponent.css";
 import { Form, FormGroup, Button } from "react-bootstrap";
 import axios from "axios";
-import Navbar from "../component/Navbar";
+import { apiUrl } from "../common/constant";
 
-const apiUrl = "http://localhost:9000";
+
 const OneAccountComponent = () => {
   const [accountDetails, setAccountDetails] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,6 +20,8 @@ const OneAccountComponent = () => {
   const AccountService = new AccountsService();
 const navigate=useNavigate();
 const location = useLocation();
+const token = localStorage.getItem('JWT_TOKEN');
+const headers = { Authorization: `Bearer ${token}` };
   useEffect(() => {
     setTimeout(()=>{},300);
     fetchData();
@@ -28,7 +30,7 @@ const location = useLocation();
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `${apiUrl}/accounts/${id}/pageOperations`
+        `${apiUrl}/accounts/${id}/pageOperations`,{headers}
       );
       setAccountDetails(response.data);
     } catch (error) {
@@ -40,7 +42,7 @@ const location = useLocation();
     const handleSendStatement = async () => {
       const accountNumber = accountDetails.accountId; // Replace with the actual account number
       try {
-        const Response = await axios.get(`${apiUrl}/statement?accountNumber=${accountNumber}`);
+        const Response = await axios.get(`${apiUrl}/statement?accountNumber=${accountNumber}`,{headers});
   
       if (Response) {
         console.log('Email sent successfully:', Response);

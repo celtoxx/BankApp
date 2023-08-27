@@ -1,6 +1,9 @@
 import axios from 'axios';
+import { apiUrl } from '../common/constant';
 
-const apiUrl = "http://localhost:9000"
+
+const token = localStorage.getItem('JWT_TOKEN');
+const headers = { Authorization: `Bearer ${token}` };
 
 class CustomerService {
   constructor() {
@@ -9,9 +12,10 @@ class CustomerService {
     });
   }
 
+  
   async getCustomer() {
     try {
-      const response = await this.http.get('/customers');
+      const response = await this.http.get('/customers',{headers});
       return response.data;
     } catch (error) {
       console.error(error);
@@ -21,7 +25,7 @@ class CustomerService {
 
   async getOneCustomer(id) {
     try {
-      const response = await this.http.get(`/customers/${id}`);
+      const response = await this.http.get(`/customers/${id}`,{headers});
       return response.data;
     } catch (error) {
       console.error(error);
@@ -31,7 +35,8 @@ class CustomerService {
 
   async getIdCustomerByName(name) {
     try {
-      const response = await this.http.get(`/customers/name/${name}`);
+      console.log(headers);
+      const response = await this.http.get(`/customers/name/${name}`,{headers});
       return response.data;
     } catch (error) {
       console.error(error);
@@ -41,7 +46,7 @@ class CustomerService {
 
   async searchCustomers(keyword, page) {
     try {
-      const response = await this.http.get(`/customers/search?keyword=${keyword}&page=${page}`);
+      const response = await this.http.get(`/customers/search?keyword=${keyword}&page=${page}`,{headers});
       return response.data;
     } catch (error) {
       console.error(error);
@@ -51,7 +56,7 @@ class CustomerService {
 
   async searchAccountByCustomer(page) {
     try {
-      const response = await this.http.get(`/Account/searchAccount?page=${page}`);
+      const response = await this.http.get(`/Account/searchAccount?page=${page}`,{headers});
       return response.data;
     } catch (error) {
       console.error(error);
@@ -71,7 +76,7 @@ class CustomerService {
 
   async deleteCustomer(id) {
     try {
-      await this.http.delete(`/customers/${id}`);
+      await this.http.delete(`/customers/${id}`,{headers});
     } catch (error) {
       console.error(error);
       throw error;
@@ -80,7 +85,7 @@ class CustomerService {
 
   async updateCustomer(customer) {
     try {
-      const response = await this.http.put(`/customers/${customer.id}`, customer);
+      const response = await this.http.put(`/customers/${customer.id}`, customer,{headers});
       return response.data;
     } catch (error) {
       console.error(error);
@@ -90,7 +95,7 @@ class CustomerService {
 
   async getCustomerById(id) {
     try {
-      const response = await this.http.get(`/customers/${id}`);
+      const response = await this.http.get(`/customers/${id}`,{headers});
       return response.data;
     } catch (error) {
       console.error(error);
@@ -100,7 +105,7 @@ class CustomerService {
 
   async getAccountsOfCustomer(id) {
     try {
-      const response = await this.http.get(`/customers/${id}/accounts`);
+      const response = await this.http.get(`/customers/${id}/accounts`,{headers});
       return response.data;
     } catch (error) {
       console.error(error);

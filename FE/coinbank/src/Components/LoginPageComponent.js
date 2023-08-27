@@ -85,6 +85,7 @@ const LoginPageComponent = () => {
                       }`}
                       placeholder="username"
                       {...register("username")}
+                      autoComplete="current-username"
                     />
                   </div>
                   <div className="input-group form-group">
@@ -100,6 +101,7 @@ const LoginPageComponent = () => {
                       }`}
                       placeholder="password"
                       {...register("password")}
+                      autoComplete="current-password"
                     />
                   </div>
                   <div className="form-group">
@@ -112,7 +114,7 @@ const LoginPageComponent = () => {
                       }`}
                     /> 
                     
-                    <button type="button" onClick={forgotPass} id="signup">
+                    <button type="button" onClick={forgotPass} id="forgotpass">
                     Forgot password
                   </button>
                   </div>

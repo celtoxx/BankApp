@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { apiUrl } from '../common/constant';
 
-const apiUrl = "http://localhost:9000"
 const clearLocalStorage = () => {
   localStorage.clear();
 };
