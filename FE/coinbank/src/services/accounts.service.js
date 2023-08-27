@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { apiUrl } from '../common/constant';
 
-const apiUrl = "http://localhost:9000"
 
 class AccountsService {
   getAccount(accountId, page, size) {

@@ -1,10 +1,10 @@
 // RequestResetComponent.jsx
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import {apiUrl} from '../common/constant';
 import axios from 'axios';
 
-const apiUrl = "http://localhost:9000";
+
 
 function RequestResetComponent() {
     const [email, setEmail] = useState('');
