@@ -5,20 +5,41 @@ import { clearCurrentUser } from '../store/action/user.action';
 import './navbar.css';
 
 const Navbar = () => {
-
+    //const loginUser = localStorage.getItem('loginuser');
     const loginUser = useSelector((u) => u.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    console.log(loginUser);
+    // const logout = () => {
+    //     console.log(document.querySelector(".fa-right-to-bracket").click()
+    //     );
+    //     console.log(localStorage.getItem('JWT_TOKEN')+'hiii');
+    //     localStorage.removeItem('JWT_TOKEN');
+    //     console.log(localStorage.getItem('JWT_TOKEN'));
+    //     const st = window.confirm("Do you want logout");
+    //     if (st) {
+    //         dispatch(clearCurrentUser());
+    //         navigate("/login")
+    //     }
+
+    // }
 
     const logout = () => {
-
-        const st = window.confirm("Do you want logout");
+        console.log('Logout function called');
+        // ... other code ...
+        console.log(localStorage.getItem('JWT_TOKEN')+'hiii');
+        localStorage.removeItem('JWT_TOKEN');
+        console.log(localStorage.getItem('JWT_TOKEN'));
+        const st = window.confirm("Do you want to log out?");
+        console.log('Confirmation result:', st);
         if (st) {
+            console.log('Dispatching clearCurrentUser');
             dispatch(clearCurrentUser());
-            navigate("/login")
+            console.log('Navigating to login page');
+            navigate("/login");
         }
-
     }
+    
 
     return (
         <>
@@ -60,22 +81,45 @@ const Navbar = () => {
                                 </li>
                             </ul>
                         }
+                        
                         {
-                            !loginUser && <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-
-                                {/* <li className="nav-item">
-                                    <Link to="netbanking" className="nav-link active" > Wallet</Link>
-                                </li> */}
-
+                        !loginUser ? (
+    // Show links for logged-in users
+    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+            <Link to="/login" className="nav-link active" onClick={logout}>
+                Logout
+            </Link>
+        </li>
+        <li className="nav-item">
+                                    <Link to="contactUs" className="nav-link active"> ContactUs</Link>
+                                </li>
                                 <li className="nav-item">
-                                    <Link to="login" className="nav-link active" ><i className="fa-solid fa-right-to-bracket"></i> Logout</Link>
+                                    <Link to="register" className="nav-link active"> Register</Link>
+                                </li>
+                            </ul>
+    
+) : (
+    // Show links for non-logged-in users
+    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+            <Link to="/login" className="nav-link active">
+                Login
+            </Link>
+        </li>
+        <li className="nav-item">
+                                    <Link to="contactUs" className="nav-link active"> ContactUs</Link>
                                 </li>
 
                                 <li className="nav-item">
                                     <Link to="register" className="nav-link active"> Register</Link>
                                 </li>
                             </ul>
-                        }
+    
+)}
+
+                                
+                        
 
 
 

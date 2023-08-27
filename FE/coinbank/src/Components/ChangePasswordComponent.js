@@ -1,7 +1,7 @@
 // RequestResetComponent.jsx
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {apiUrl} from '../common/constant';
+import { apiUrl } from '../common/constant';import {apiUrl} from '../common/constant';
 import axios from 'axios';
 
 
@@ -43,7 +43,7 @@ function RequestResetComponent() {
         
             if(chkotp===otp)
             {
-                setverifiedOTP(true)
+                setverifiedOTP(true);
                 console.log(verifiedOTP);
                 alert('Otp verified...');
             }
@@ -52,13 +52,13 @@ function RequestResetComponent() {
                 alert('Invalid Otp....');
             }
             
-           console.log(verifiedOTP);
-        
-           
+        //    console.log(verifiedOTP);
         }
     
 
+
    const changePass= async ()=>{
+
 
         if(verifiedOTP && (cnfpassword===cnf2password))
         {
@@ -74,6 +74,8 @@ function RequestResetComponent() {
         }
 
     }
+
+
 
     return (
         <div>

@@ -6,10 +6,10 @@ import React, { useState } from 'react';
 import './SignUpForm.css';
 
 import axios from 'axios';
-
+import { apiUrl } from '../common/constant';
 import { useNavigate } from 'react-router-dom';
 
-const apiUrl = "http://localhost:9000";
+
 
 const SignupForm = () => {
   const [email, setEmail] = useState('');

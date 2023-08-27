@@ -3,8 +3,8 @@ import './OTPVerification.css'; // Import the CSS file
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { apiUrl } from '../common/constant';
 
-const apiUrl = "http://localhost:9000";
 
 const OTPVerificationForm = () => {
   const location = useLocation();
@@ -24,7 +24,7 @@ const navigate = useNavigate();
     if (otp === (optData.otp)) {
       try {
        
-        const response = await axios.post(`${apiUrl}/customers`, {
+        const response = await axios.post(`${apiUrl}/customers/save`, {
           email: email,name:name
         });
         alert("you can login now!!! your name is your password")
