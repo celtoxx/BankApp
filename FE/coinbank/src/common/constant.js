@@ -1,4 +1,4 @@
 
 
 
-export const apiUrl="http://3.111.198.52:9000";
+export const apiUrl="http://localhost:9000";
