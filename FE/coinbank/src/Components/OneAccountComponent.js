@@ -25,7 +25,7 @@ const headers = { Authorization: `Bearer ${token}` };
   useEffect(() => {
     setTimeout(()=>{},300);
     fetchData();
-  }, []);
+  }, [accountDetails]);
 
   const fetchData = async () => {
     try {
@@ -40,18 +40,18 @@ const headers = { Authorization: `Bearer ${token}` };
  
   
     const handleSendStatement = async () => {
-      const accountNumber = accountDetails.accountId; // Replace with the actual account number
+      const accountNumber = accountDetails.accountId; 
       try {
         const Response = await axios.get(`${apiUrl}/statement?accountNumber=${accountNumber}`,{headers});
   
       if (Response) {
-        console.log('Email sent successfully:', Response);
+        alert('Email sent successfully:', Response);
       }
     }
   catch(err){console.log(err)}};
   
    const gotoWallet=()=>{
-    navigate(`/customer-accounts/${location.state}`)
+    navigate(`/customer-accounts/${accountDetails.customerId}`)
    }
 
 

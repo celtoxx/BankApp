@@ -33,11 +33,11 @@ function ManageCustomersComponent() {
   const searchCustomers = async () => {
     try {
       var kw = searchKeyword; // Assuming you have a 'searchKeyword' state
-      kw="";
+     
       
       // Perform the equivalent of Angular's HTTP request for searching customers
       // Replace this with your actual API call, for example using Axios or Fetch
-      const response = await customerService.searchCustomers("",0);
+      const response = await customerService.searchCustomers(kw,0);
       console.log(response)
       console.log(typeof response.customerDTO);
       const data =  response.customerDTO;
@@ -202,6 +202,7 @@ function ManageCustomersComponent() {
                     {...register('keyword')}
                     className="form-control"
                     style={{ fontSize: '28px' }}
+                    onChange={(e)=>{setSearchKeyword(e.target.value)}}
                   />
                   <button className="btn btn-warning" style={{ fontSize: '30px' }}>
                     Search

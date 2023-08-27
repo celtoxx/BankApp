@@ -5,8 +5,10 @@ import AuthService from "../services/auth.service";
 import CustomerService from "../services/customer.service";
 //import  Customer  from '../models/customer.model';
 import './LoginPageComponent.css';
-
+import { GoogleLogin } from "react-google-login";
 const LoginPageComponent = () => {
+
+  const cid="495215441570-0qrcj5v223fc8f59ubsvvlnmbdkjjvqb.apps.googleusercontent.com"
   const navigate = useNavigate();
   const authService = AuthService();
   const customerService = new CustomerService();
@@ -109,9 +111,7 @@ const LoginPageComponent = () => {
                       type="submit"
                       disabled={Object.keys(errors).length > 0}
                       value="Login"
-                      className={`btn float-right login_btn ${
-                        Object.keys(errors).length > 0 ? "disabled" : ""
-                      }`}
+                      className={`btn float-right login_btn `}
                     /> 
                     
                     <button type="button" onClick={forgotPass} id="forgotpass">
@@ -120,7 +120,11 @@ const LoginPageComponent = () => {
                   </div>
                   <button type="button" onClick={signup} id="signup">
                     Create Account
-                  </button>
+                  </button> 
+                  {/* <GoogleButton
+          style={{ marginTop: 10 }}
+          onPress={() => authService.loginWithGoogle()}
+        /> */}
                 </form>
               </div>
             </div>

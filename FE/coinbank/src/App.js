@@ -30,6 +30,7 @@ import { Footer } from "./component/Footer";
 import ContactUsComponent from './Components/contactUsComponent'
 
 function App() {
+
   return (
     <div>
       <BrowserRouter>
@@ -42,7 +43,7 @@ function App() {
         <Route path='/forgotPassword' element={<ForgotPassword />}></Route> */}
           <Route
             path="/"
-            element={<LoginPageComponent></LoginPageComponent>}
+            element={<LoginPageComponent ></LoginPageComponent>}
           ></Route>
           <Route
             path="/login"
