@@ -15,8 +15,8 @@ class AccountsService {
       });
   }
 
-  makeDebit(accountId, amount, description) {
-    const data = { accountId, amount, description };
+  makeDebit(accountId, amount, description,upiId) {
+    const data = { accountId, amount, description,upiId };
     return axios.post(`${apiUrl}/accounts/debit`, data,{headers})
       .catch(error => {
         console.log(error);

@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux';
+import { setCurrentUser } from "../store/action/user.action";
 import AuthService from "../services/auth.service";
 import CustomerService from "../services/customer.service";
 //import  Customer  from '../models/customer.model';
 import './LoginPageComponent.css';
-import { GoogleLogin } from "react-google-login";
+//import { GoogleLogin } from "react-google-login";
 const LoginPageComponent = () => {
 
   const cid="495215441570-0qrcj5v223fc8f59ubsvvlnmbdkjjvqb.apps.googleusercontent.com"
   const navigate = useNavigate();
   const authService = AuthService();
   const customerService = new CustomerService();
+  const dispatch = useDispatch();
 
   const [Customer, setCustomer] = useState({
     id: 0,
@@ -32,9 +35,11 @@ const LoginPageComponent = () => {
     });
 
     if (success) {
+      document.getElementById('validcred').innerHTML='';
       const roles = localStorage.getItem("ROLES");
       console.log(roles);
       if (roles && roles.includes("ADMIN")) {
+        //sessionStorage.setItem("CUSTOMER",user);
         navigate("/customers");
         window.location.reload();
       } else {
@@ -45,6 +50,9 @@ const LoginPageComponent = () => {
           );
           console.log(customerData.id + customerData.email + "asdasda");
           setCustomer(customerData);
+          const user = { id: customerData.id, email: customerData.email };
+          sessionStorage.setItem("CUSTOMER",user);
+          dispatch(setCurrentUser(user));
           navigate(`/customer-accounts/${customerData.id}`);
           setTimeout(() => {
             window.location.reload();
@@ -53,6 +61,10 @@ const LoginPageComponent = () => {
           console.log(error);
         }
       }
+    }
+    else{
+      document.getElementById('validcred').innerHTML='Invalid Credential!';
+      navigate('/login')
     }
   };
 
@@ -64,14 +76,15 @@ const LoginPageComponent = () => {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
+    
+    <div style={{ textAlign: "center" }} className="background-container">
       <div className="page">
         <div className="container">
           <div className="d-flex justify-content-center h-100">
             <div className="card">
               <div className="card-header">
                 <h3>Sign In</h3>
-              </div>
+              </div><span class='validcred' id='validcred' style={{color:'red'}}></span>
               <div className="card-body">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="input-group form-group">
@@ -81,6 +94,7 @@ const LoginPageComponent = () => {
                       </span>
                     </div>
                     <input
+                      required
                       type="text"
                       className={`form-control ${
                         errors.username ? "is-invalid" : ""
@@ -97,11 +111,13 @@ const LoginPageComponent = () => {
                       </span>
                     </div>
                     <input
+                      required
                       type="password"
                       className={`form-control ${
                         errors.password ? "is-invalid" : ""
                       }`}
                       placeholder="password"
+                      
                       {...register("password")}
                       autoComplete="current-password"
                     />

@@ -1,16 +1,17 @@
-import { CLEAR_CURRENT_USER, SET_CURRENT_USER } from "../type"
+// actions/userActions.js
+import { SET_CURRENT_USER, CLEAR_CURRENT_USER } from '../type';
 
 export const setCurrentUser = (user) => {
-    return {
-        type: SET_CURRENT_USER,
-        payload: user
-    }
-}
-
+  return {
+    type: SET_CURRENT_USER,
+    payload: user,
+  };
+};
 
 export const clearCurrentUser = () => {
-    return {
-        type: CLEAR_CURRENT_USER
-    }
-}
+  return {
+    type: CLEAR_CURRENT_USER,
+  };
+};
+
 

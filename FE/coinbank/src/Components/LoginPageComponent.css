@@ -24,3 +24,17 @@
     opacity: 0.6;
   }
   
+  .background-container {
+    text-align: center;
+    padding: 20px;
+    background-image: url('/public/img/bank.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: fixed;
+    top: 8%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  

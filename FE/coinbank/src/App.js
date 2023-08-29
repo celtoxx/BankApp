@@ -27,12 +27,16 @@ import ManageCustomersComponent from "./Components/ManagerCustomersComponent";
 import UpdateCustomerComponent from "./Components/UpdateCustomerComponent";
 import ChangePasswordComponent from "./Components/ChangePasswordComponent";
 import { Footer } from "./component/Footer";
-import ContactUsComponent from './Components/contactUsComponent'
+import ContactUsComponent from './Components/contactUsComponent';
+import WithDrawRequests from './Components/WithDrawRequests';
+import LoanComponent from "./Components/LoanComponent";
+import FDComponent from "./Components/FDComponent";
 
 function App() {
 
   return (
     <div>
+      <body>
       <BrowserRouter>
         <Navbar></Navbar>
         
@@ -57,6 +61,10 @@ function App() {
             path="/payment"
             element={<PaymentComponent></PaymentComponent>}
           ></Route>
+           <Route
+            path="/withdrawreqs"
+            element={<WithDrawRequests></WithDrawRequests>}
+          ></Route>
 
           <Route
             path="/verifyOtp"
@@ -76,6 +84,14 @@ function App() {
            <Route
             path="update-customer/:id"
             element={<UpdateCustomerComponent></UpdateCustomerComponent>}
+          />
+          <Route
+            path="loansection/:id"
+            element={<LoanComponent></LoanComponent>}
+          />
+          <Route
+            path="fdsection/:id"
+            element={<FDComponent></FDComponent>}
           />
            <Route
             path="/forgotPass"
@@ -103,8 +119,8 @@ function App() {
             //{" "}
           </Route>
         </Routes>
-        <Footer></Footer>
-      </BrowserRouter>
+        {/* <Footer></Footer> */}
+      </BrowserRouter></body>
     </div>
   );
 }

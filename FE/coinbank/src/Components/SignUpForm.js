@@ -15,14 +15,21 @@ const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [isWaiting, setIsWaiting] = useState(false);
+  const [isValidEmail, setIsValidEmail] = useState(true);
 
 
 
 
 const navigate = useNavigate();
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+const handleEmailChange = (event) => {
+  const newEmail = event.target.value;
+  setEmail(newEmail);
+
+  // Regular expression for basic email validation
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  setIsValidEmail(emailPattern.test(newEmail));
+};
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -84,11 +91,13 @@ const navigate = useNavigate();
               required
               placeholder=""
               type="email"
-              className="input"
+              className={`input ${isValidEmail ? '' : 'invalid'}`}
+              //className="input"
               value={email}
               onChange={handleEmailChange}
             />
             <span>Email</span>
+      {!isValidEmail && <p className="error-message">Please enter a valid email address.</p>}
           </label>
         </div>
         <button className="submit" onClick={handleSubmit}>Submit</button>

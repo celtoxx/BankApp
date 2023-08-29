@@ -14,6 +14,7 @@ function RequestResetComponent() {
     const [cnf2password, setcnf2Password] = useState('');
     const [verifiedOTP,setverifiedOTP]=useState(false);
     const [chkotp, setchkOtp] = useState('');
+    const [isValidEmail, setIsValidEmail] = useState(true);
   
     useEffect(() => {
         console.log("in use effect");
@@ -73,7 +74,18 @@ function RequestResetComponent() {
         navigate('/login');
         }
 
+
     }
+
+    const handleEmailChange = (event) => {
+        const newEmail = event.target.value;
+        setEmail(newEmail);
+      
+        // Regular expression for basic email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        setIsValidEmail(emailPattern.test(newEmail));
+      };
 
 
 
@@ -84,10 +96,13 @@ function RequestResetComponent() {
                 <input
                     type="email"
                     placeholder="Enter your email"
+                    className={`input ${isValidEmail ? '' : 'invalid'}`}
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-
+                    onChange={handleEmailChange}
+                    required
                 />
+                <span></span>
+      {!isValidEmail && <p className="error-message">Please enter a valid email address.</p>}
                 <button type="button" onClick={handleRequestReset}>Send OTP</button>
                 <br></br><br></br>
                 <input
@@ -95,15 +110,15 @@ function RequestResetComponent() {
                     placeholder="Enter your otp"
                     value={otp}
                     onChange={(e) => {setOtp(e.target.value)}}
-
+                    required
                 />
                 <button type="button" onClick={verifyotp}>Verify OTP</button>
                 <br></br><br></br>
                 New Password:
-                <input type="password" value={cnfpassword} onChange={(e)=>{setcnfPassword(e.target.value)}}/>
+                <input type="password" id='password' value={cnfpassword} onChange={(e)=>{setcnfPassword(e.target.value)}} required/>
                 <br></br><br></br>
                 Confirm Password:
-                <input type="password" value={cnf2password} onChange={(e)=>{setcnf2Password(e.target.value)}} />
+                <input type="password" id='password' value={cnf2password} onChange={(e)=>{setcnf2Password(e.target.value)}} required/>
                 <br></br><br></br>
                 <button type="button" onClick={changePass}>Submit</button>
             </form>

@@ -58,7 +58,7 @@ const updateProfile=(account)=>{
 
   return (
     
-    <Container>
+    <Container className="background-container">
       
       {loading ? (
         <Spinner animation="border" variant="primary" />

@@ -19,7 +19,7 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+     // throw error;
     }
   }
 
@@ -29,7 +29,7 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+      //throw error;
     }
   }
 
@@ -40,7 +40,7 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+     // throw error;
     }
   }
 
@@ -50,7 +50,7 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+      //throw error;
     }
   }
 
@@ -60,7 +60,7 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+     // throw error;
     }
   }
 
@@ -70,7 +70,7 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+     // throw error;
     }
   }
 
@@ -79,7 +79,7 @@ class CustomerService {
       await this.http.delete(`/customers/${id}`,{headers});
     } catch (error) {
       console.error(error);
-      throw error;
+      //throw error;
     }
   }
 
@@ -89,7 +89,7 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+      //throw error;
     }
   }
 
@@ -99,7 +99,7 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+      //throw error;
     }
   }
 
@@ -109,7 +109,18 @@ class CustomerService {
       return response.data;
     } catch (error) {
       console.error(error);
-      throw error;
+      
+    }
+  }
+
+
+  async getwithdrawreqs(){
+    try{
+      const response = await this.http.get(`/withdrawreqs`,{headers});
+      return response.data;
+
+    }catch(error){
+      console.log(error)
     }
   }
 }

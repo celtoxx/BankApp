@@ -1,10 +1,11 @@
-import { combineReducers, createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import userReducer from './reducer/user.reducer';
 
-const allReducer = combineReducers({
-    user: userReducer
-})
+const rootReducer = combineReducers({
+  user: userReducer,
+  // other reducers
+});
 
-const store = createStore(allReducer);
+const store = createStore(rootReducer);
 
 export default store;

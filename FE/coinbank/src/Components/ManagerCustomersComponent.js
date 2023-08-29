@@ -88,6 +88,13 @@ function ManageCustomersComponent() {
     });
   };
 
+
+
+  const handlewithdrawreqs=()=>{
+    navigate('/withdrawreqs')
+    
+
+  }
   const handleUpdateButton = (customer) => {
     // Perform the equivalent of Angular's HTTP request to update customer
     // Navigate to '/customers' after updating
@@ -123,7 +130,8 @@ function ManageCustomersComponent() {
   const renderCustomerTable = () => {
     if (!customers) return null;
 
-    return (
+    return (<div>
+      <button type="button" onClick={handlewithdrawreqs}>withdraw requests</button>
       <table className="table mt-5">
         <thead>
           <tr>
@@ -168,6 +176,7 @@ function ManageCustomersComponent() {
           ))}
         </tbody>
       </table>
+      </div>
     );
   };
 
