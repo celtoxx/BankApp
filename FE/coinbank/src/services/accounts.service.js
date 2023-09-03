@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { apiUrl } from '../common/constant';
-import { apiUrl } from '../common/constant';
+
 
 
 const token = localStorage.getItem('JWT_TOKEN');

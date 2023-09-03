@@ -1,10 +1,9 @@
 // RequestResetComponent.jsx
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiUrl } from '../common/constant';import {apiUrl} from '../common/constant';
+import { apiUrl } from '../common/constant';
+
 import axios from 'axios';
-
-
 
 function RequestResetComponent() {
     const [email, setEmail] = useState('');

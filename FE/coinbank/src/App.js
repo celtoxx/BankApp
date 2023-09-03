@@ -8,19 +8,12 @@ import OTPVerificationForm from "./Components/OTPVerificationForm";
 import OneAccountComponent from "./Components/OneAccountComponent";
 import CustomerAccountsComponent from "./Components/CustomerAccountComponent";
 import Navbar from "./component/Navbar";
-import Login from "./pages/Login";
+
 import "react-toastify/dist/ReactToastify.css";
 import { MainPage } from "./component/Admin-Navbar/MainPage";
-import ForgotPassword from "./pages/ForgotPassword";
-import NetBanking from "./pages/NetBanking";
-import Signup from "./pages/Signup";
-import UnAuthorized from "./pages/UnAuthorized";
-import AllTransaction from "./pages/user/AllTransaction";
-import Balance from "./pages/user/Balance";
-import ChangePassword from "./pages/user/ChangePassword";
-import SendMoney from "./pages/user/SendMoney";
+
 import UHome from "./pages/user/UHome";
-import UViewProfile from "./pages/user/ViewProfile";
+
 import { AuthGuard } from "./guard/auth.guard";
 import PaymentComponent from "./Components/PaymentComponent";
 import ManageCustomersComponent from "./Components/ManagerCustomersComponent";
