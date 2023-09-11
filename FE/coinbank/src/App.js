@@ -12,7 +12,7 @@ import Navbar from "./component/Navbar";
 import "react-toastify/dist/ReactToastify.css";
 import { MainPage } from "./component/Admin-Navbar/MainPage";
 
-import UHome from "./pages/user/UHome";
+// import UHome from "./pages/user/UHome";
 
 import { AuthGuard } from "./guard/auth.guard";
 import PaymentComponent from "./Components/PaymentComponent";
@@ -96,14 +96,14 @@ function App() {
           />
           <Route path="/user/*">
             //{" "}
-            <Route
+            {/* <Route
               path="uhome"
               element={
                 <AuthGuard roles={["USER"]}>
                   <UHome />
                 </AuthGuard>
               }
-            ></Route>
+            ></Route> */}
             {/* //           <Route path='allTransaction' element={<AuthGuard roles={['ROLE_USER']}><AllTransaction /></AuthGuard>}></Route>
 //           <Route path='balance' element={<AuthGuard roles={['ROLE_USER']}><Balance /></AuthGuard>}></Route>
 //           <Route path='changePassword' element={<AuthGuard roles={['ROLE_USER']}><ChangePassword /></AuthGuard>}></Route>
