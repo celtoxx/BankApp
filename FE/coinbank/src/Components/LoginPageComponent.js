@@ -78,6 +78,7 @@ const LoginPageComponent = () => {
   return (
     
     <div style={{ textAlign: "center" }} className="background-container">
+      
       <div className="page">
         <div className="container">
           <div className="d-flex justify-content-center h-100">
@@ -147,7 +148,11 @@ const LoginPageComponent = () => {
           </div>
         </div>
       </div>
+      <div class="marquee-container">
+    <p class="marquee-text" >C-DAC Project</p>
+</div>
     </div>
+    
   );
 };
 
