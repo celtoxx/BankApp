@@ -8,19 +8,12 @@ import OTPVerificationForm from "./Components/OTPVerificationForm";
 import OneAccountComponent from "./Components/OneAccountComponent";
 import CustomerAccountsComponent from "./Components/CustomerAccountComponent";
 import Navbar from "./component/Navbar";
-import Login from "./pages/Login";
+
 import "react-toastify/dist/ReactToastify.css";
 import { MainPage } from "./component/Admin-Navbar/MainPage";
-import ForgotPassword from "./pages/ForgotPassword";
-import NetBanking from "./pages/NetBanking";
-import Signup from "./pages/Signup";
-import UnAuthorized from "./pages/UnAuthorized";
-import AllTransaction from "./pages/user/AllTransaction";
-import Balance from "./pages/user/Balance";
-import ChangePassword from "./pages/user/ChangePassword";
-import SendMoney from "./pages/user/SendMoney";
-import UHome from "./pages/user/UHome";
-import UViewProfile from "./pages/user/ViewProfile";
+
+// import UHome from "./pages/user/UHome";
+
 import { AuthGuard } from "./guard/auth.guard";
 import PaymentComponent from "./Components/PaymentComponent";
 import ManageCustomersComponent from "./Components/ManagerCustomersComponent";
@@ -103,14 +96,14 @@ function App() {
           />
           <Route path="/user/*">
             //{" "}
-            <Route
+            {/* <Route
               path="uhome"
               element={
                 <AuthGuard roles={["USER"]}>
                   <UHome />
                 </AuthGuard>
               }
-            ></Route>
+            ></Route> */}
             {/* //           <Route path='allTransaction' element={<AuthGuard roles={['ROLE_USER']}><AllTransaction /></AuthGuard>}></Route>
 //           <Route path='balance' element={<AuthGuard roles={['ROLE_USER']}><Balance /></AuthGuard>}></Route>
 //           <Route path='changePassword' element={<AuthGuard roles={['ROLE_USER']}><ChangePassword /></AuthGuard>}></Route>
